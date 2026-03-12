@@ -19,7 +19,11 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
-
+      
+feign:
+  circuitbreaker:
+    enabled: true
+      
 resilience4j:
   circuitbreaker:
     instances:
@@ -32,8 +36,3 @@ resilience4j:
         slidingWindowSize: 5
         failureRateThreshold: 50
         waitDurationInOpenState: 10s
-
-feign:
-  circuitbreaker:
-    enabled: true
-      
