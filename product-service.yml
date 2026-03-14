@@ -20,16 +20,12 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
 
+otel:
+ exporter:
+  zipkin:
+   endpoint: http://localhost:9412/api/v2/spans
+   
 management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-
   tracing:
     sampling:
       probability: 1.0
-
-  zipkin:
-    tracing:
-      endpoint: http://localhost:9412/api/v2/spans
