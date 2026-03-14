@@ -1,3 +1,4 @@
+```yaml
 server:
   port: 8080
 
@@ -11,6 +12,8 @@ spring:
 
   cloud:
     gateway:
+      actuator:
+        enabled: true
       routes:
         - id: product-service
           uri: lb://product-service
@@ -27,7 +30,6 @@ spring:
                 redis-rate-limiter.replenishRate: 2
                 redis-rate-limiter.burstCapacity: 2
                 key-resolver: "#{@userKeyResolver}"
-
 
         - id: inventory-service
           uri: lb://inventory-service
@@ -49,7 +51,6 @@ management:
   endpoint:
     gateway:
       enabled: true
-
   endpoints:
     web:
       exposure:
@@ -62,4 +63,5 @@ management:
 otel:
   exporter:
     zipkin:
-      endpoint: http://localhost:9411/api/v2/spans
+      endpoint: http://localhost:9412/api/v2/spans
+```
