@@ -47,16 +47,12 @@ resilience4j:
         maxAttempts: 3
         waitDuration: 2s
 
+otel:
+ exporter:
+  zipkin:
+   endpoint: http://localhost:9412/api/v2/spans
+   
 management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-
   tracing:
     sampling:
       probability: 1.0
-
-  zipkin:
-    tracing:
-      endpoint: http://localhost:9412/api/v2/spans
