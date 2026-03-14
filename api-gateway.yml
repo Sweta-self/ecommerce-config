@@ -63,4 +63,3 @@ otel:
   exporter:
     zipkin:
       endpoint: http://localhost:9412/api/v2/spans
-```
