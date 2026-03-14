@@ -21,11 +21,9 @@ eureka:
       defaultZone: http://localhost:8761/eureka
 
 management:
- tracing:
-  sampling:
-   probability: 1.0
-
-management:
- zipkin:
   tracing:
-   endpoint: http://localhost:9412/api/v2/spans
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9412/api/v2/spans
