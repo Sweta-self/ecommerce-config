@@ -21,6 +21,13 @@ spring:
           uri: lb://order-service
           predicates:
             - Path=/orders/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 2
+                redis-rate-limiter.burstCapacity: 2
+                key-resolver: "#{@userKeyResolver}"
+
 
         - id: inventory-service
           uri: lb://inventory-service
